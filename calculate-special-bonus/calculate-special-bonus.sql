@@ -15,7 +15,7 @@ Return the result table ordered by employee_id.
 */
 SELECT 
     employee_id,
-    IF(employee_id % 2 = 1 AND name NOT REGEXP '^M', salary, 0) AS bonus 
+    IF(employee_id % 2 = 1 AND name NOT LIKE 'M%', salary, 0) AS bonus 
 FROM 
     employees 
 ORDER BY 
