@@ -10,14 +10,13 @@ class Solution:
     def preorder(self, root: 'Node') -> List[int]:
         def dfs(node, result):
             if not node:
-                return
+                return []
             
-            result.append(node.val)
+            cur_result = [node.val]
             
             for child in node.children:
-                dfs(child, result)
+                cur_result.extend(dfs(child, cur_result))
             
-            return result
-        
+            return cur_result
+            
         return dfs(root, [])
-            
